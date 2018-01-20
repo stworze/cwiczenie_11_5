@@ -5,7 +5,7 @@ function getQuote() {
     $.getJSON(quoteUrl, createTweet);
 }
 
-unction createTweet(input) {
+function createTweet(input) {
     var data = input[0];
 
     var quoteText = $(data.content).text().trim();
@@ -25,4 +25,11 @@ unction createTweet(input) {
 	    $('.tweet').attr('href', tweet);
 	}
 }
+
+$(document).ready(function() {
+    getQuote();
+    $('.trigger').click(function() {
+        getQuote();
+    })
+});
 
